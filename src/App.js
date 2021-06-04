@@ -1,16 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import { Welcome as MyWelcome } from './components/Welcome.js';
+import { Header } from './components/header/Header.js';
 
 function App() {
-  const name = "Guillaume"
-
   return (
     <>
-      <MyWelcome
-        style={{ color: "red" }}
-        name={name}
-      />
+      <Header />
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

@@ -1,0 +1,5 @@
+@import '../../variables.css';
+
+.header-root {
+    height: calc(var(--grid-unit) * 8);
+}
