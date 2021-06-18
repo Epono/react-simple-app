@@ -1,13 +1,84 @@
 import logo from './logo.svg';
 import './App.css';
 import { Header } from './components/header/Header.js';
+import { ArticleCard } from './components/article-card/ArticleCard.js';
+import { CardsList } from './components/cards-list/CardsList.js';
 
 function App() {
+  const articles = [
+    {
+      author: 'Me',
+      title: 'A nice title',
+      description: 'A small description',
+      date: '11/06/2021',
+    },
+    {
+      author: 'Me',
+      title: 'A nice title',
+      description: 'A small description',
+      date: '11/06/2021',
+    },
+    {
+      author: 'Me',
+      title: 'A nice title',
+      description: 'A small description',
+      date: '11/06/2021',
+    },
+    {
+      author: 'Me',
+      title: 'A nice title',
+      description: 'A small description',
+      date: '11/06/2021',
+    },
+    {
+      author: 'Me',
+      title: 'A nice title',
+      description: 'A small description',
+      date: '11/06/2021',
+    },
+    {
+      author: 'Me',
+      title: 'A nice title',
+      description: 'A small description',
+      date: '11/06/2021',
+    },
+    {
+      author: 'Me',
+      title: 'A nice title',
+      description: 'A small description',
+      date: '11/06/2021',
+    },
+    {
+      author: 'Me',
+      title: 'A nice title',
+      description: 'A small description',
+      date: '11/06/2021',
+    },
+    {
+      author: 'Me',
+      title: 'A nice title',
+      description: 'A small description',
+      date: '11/06/2021',
+    },
+    {
+      author: 'Me',
+      title: 'A nice title',
+      description: 'A small description',
+      date: '11/06/2021',
+    },
+    {
+      author: 'Me',
+      title: 'A nice title',
+      description: 'A small description',
+      date: '11/06/2021',
+    },
+  ]
+
   return (
     <>
       <Header />
       <div className="App">
-        <header className="App-header">
+        {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
@@ -20,7 +91,8 @@ function App() {
           >
             Learn React
         </a>
-        </header>
+        </header> */}
+        <CardsList articles={articles} />
       </div>
     </>
   );
