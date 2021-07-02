@@ -1,0 +1,15 @@
+{
+          "header": {
+            "welcome": "Hello World!",
+            "our_story": "Our story",
+            "membership": "Membership",
+            "write": "Write",
+            "sign_in": "Sign in",
+            "get_started": "Get started"
+          },
+          "article1": {
+            "author": "Me",
+            "title": "A nice title",
+            "description": "A small description"
+          }
+        }

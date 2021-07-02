@@ -1,0 +1,15 @@
+{
+    "header": {
+        "welcome": "Hallo Welt !",
+        "our_story": "Unsere Geschichte",
+        "membership": "Mitgliedschaft",
+        "write": "Schreiben",
+        "sign_in": "Einloggen",
+        "get_started": "Loslegen"
+      },
+      "article1": {
+        "author": "Mich",
+        "title": "Ein schöner Titel",
+        "description": "Eine kleine Beschreibung"
+      }
+  }
