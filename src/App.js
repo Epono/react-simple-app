@@ -2,11 +2,15 @@ import "./App.css";
 import { Header } from "./components/header/Header.js";
 import { CardsList } from "./components/cards-list/CardsList.js";
 import { useTranslation } from "react-i18next";
+import englishFlag from "./assets/images/united-kingdom.png";
+import germanFlag from "./assets/images/germany.png";
+import frenchFlag from "./assets/images/france.png";
+import { GRID_UNIT } from "./constants.js";
 
 const lngs = {
-  en: { nativeName: "English" },
-  de: { nativeName: "Deutsch" },
-  fr: { nativeName: "French" },
+  en: { nativeName: "English", image: englishFlag },
+  de: { nativeName: "Deutsch", image: germanFlag },
+  fr: { nativeName: "French", image: frenchFlag },
 };
 
 function App() {
@@ -87,7 +91,13 @@ function App() {
               type="submit"
               onClick={() => i18n.changeLanguage(lng)}
             >
-              {lngs[lng].nativeName}
+              <img
+                src={lngs[lng].image}
+                width={GRID_UNIT * 2}
+                // alt="my image"
+                // onClick={this.myfunction}
+              />
+              {/* {lngs[lng].nativeName} */}
             </button>
           ))}
         </div>
