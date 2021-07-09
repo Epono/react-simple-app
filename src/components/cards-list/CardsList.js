@@ -9,13 +9,22 @@ const useStyles = makeStyles({
   },
 });
 
-export const CardsList = ({ articles }) => {
+export const CardsList = ({ articles, onArticleClick }) => {
   const classes = useStyles();
+
+  // handleClick = () => {
+  //   onArticleClick(this.props.value);
+  // }
 
   return (
     <Box display="flex" justifyContent="space-around" flexWrap="wrap">
       {articles.map((article) => (
-        <Box width={300} className={classes.root}>
+        <Box
+          width={300}
+          className={classes.root}
+          key={article.id}
+          onClick={() => onArticleClick(article.id)}
+        >
           <ArticleCard
             author={article.author}
             title={article.title}
