@@ -122,6 +122,7 @@ function App() {
                 width={GRID_UNIT * 2}
                 data-toggle="tooltip"
                 title={lngs[lng].nativeName}
+                alt={lngs[lng].nativeName}
               />
             </button>
           ))}
