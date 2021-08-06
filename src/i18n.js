@@ -64,7 +64,7 @@ i18n
       fr: {
         translation: {
           header: {
-            welcome: "Allo le monde!",
+            welcome: "Allô le monde!",
             our_story: "Notre histoire",
             membership: "Abonnement",
             write: "Écrire",
@@ -73,6 +73,21 @@ i18n
           },
           articles: {
             learn_more: "En savoir plus",
+          },
+        },
+      },
+      it: {
+        translation: {
+          header: {
+            welcome: "Ciao mondo!",
+            our_story: "La nostra storia",
+            membership: "Abbonamento",
+            write: "Scrivere",
+            sign_in: "Se Accesso",
+            get_started: "Iniziare",
+          },
+          articles: {
+            learn_more: "Per saperne di più",
           },
         },
       },

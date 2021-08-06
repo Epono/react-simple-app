@@ -7,91 +7,21 @@ import { useState } from "react";
 import englishFlag from "./assets/images/united-kingdom.png";
 import germanFlag from "./assets/images/germany.png";
 import frenchFlag from "./assets/images/france.png";
+import italianFlag from "./assets/images/italy.png";
 import { GRID_UNIT } from "./constants.js";
+import { articles } from "./articles/articles";
 
 const lngs = {
   en: { nativeName: "English", image: englishFlag },
   de: { nativeName: "Deutsch", image: germanFlag },
   fr: { nativeName: "French", image: frenchFlag },
+  it: { nativeName: "Italian", image: italianFlag },
 };
 
 function App() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const [selectedArticleId, setSelectedArticleId] = useState(null);
-
-  const articles = [
-    {
-      id: 1,
-      author: "Me",
-      title: "A nice title",
-      description: "A small description",
-      date: "11/06/2021",
-    },
-    {
-      id: 2,
-      author: "Me",
-      title: "A nice title",
-      description: "A small description",
-      date: "11/06/2021",
-    },
-    {
-      id: 3,
-      author: "Me",
-      title: "A nice title",
-      description: "A small description",
-      date: "11/06/2021",
-    },
-    {
-      id: 4,
-      author: "Me",
-      title: "A nice title",
-      description: "A small description",
-      date: "11/06/2021",
-    },
-    {
-      id: 5,
-      author: "Me",
-      title: "A nice title",
-      description: "A small description",
-      date: "11/06/2021",
-    },
-    {
-      id: 6,
-      author: "Me",
-      title: "A nice title",
-      description: "A small description",
-      date: "11/06/2021",
-    },
-    {
-      id: 7,
-      author: "Me",
-      title: "A nice title",
-      description: "A small description",
-      date: "11/06/2021",
-    },
-    {
-      id: 8,
-      author: "Me",
-      title: "A nice title",
-      description: "A small description",
-      date: "11/06/2021",
-    },
-    {
-      id: 9,
-      author: "Me",
-      title: "A nice title",
-      description: "A small description",
-      date: "11/06/2021",
-    },
-    {
-      id: 10,
-      author: "Me",
-      title: "A nice title",
-      description: "A small description",
-      date: "11/06/2021",
-    },
-  ];
 
   const articleClicked = (articleId) => {
     setSelectedArticleId(articleId);
@@ -109,7 +39,7 @@ function App() {
     <>
       <Header />
       <div className="App">
-        <div>
+        <div className="flags-container">
           {Object.keys(lngs).map((lng) => (
             <button
               key={lng}
@@ -141,3 +71,9 @@ function App() {
 }
 
 export default App;
+
+// better markdown, authors  to grab,
+// try not to fetch and use markdown package to do it
+// use json data model to store articles
+// skim through async tasks and http_client
+// 404 on article not found

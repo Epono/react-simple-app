@@ -12,10 +12,6 @@ const useStyles = makeStyles({
 export const CardsList = ({ articles, onArticleClick }) => {
   const classes = useStyles();
 
-  // handleClick = () => {
-  //   onArticleClick(this.props.value);
-  // }
-
   return (
     <Box display="flex" justifyContent="space-around" flexWrap="wrap">
       {articles.map((article) => (
