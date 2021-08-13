@@ -43,6 +43,8 @@ i18n
           },
           articles: {
             learn_more: "Learn more",
+            not_found: "Article not found",
+            back: "Back",
           },
         },
       },
@@ -58,6 +60,8 @@ i18n
           },
           articles: {
             learn_more: "Mehr erfahren",
+            not_found: "Article not found",
+            back: "Back",
           },
         },
       },
@@ -73,6 +77,8 @@ i18n
           },
           articles: {
             learn_more: "En savoir plus",
+            not_found: "Article not found",
+            back: "Back",
           },
         },
       },
@@ -88,6 +94,8 @@ i18n
           },
           articles: {
             learn_more: "Per saperne di più",
+            not_found: "Article not found",
+            back: "Back",
           },
         },
       },

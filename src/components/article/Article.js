@@ -1,32 +1,45 @@
+// import React from "react";
 import { useTranslation } from "react-i18next";
 import ReactMarkdown from "react-markdown";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { articles } from "../../articles/articles";
+import { Link } from "react-router-dom";
 
-// const ARTICLES_PATH = "../../articles";
-export const Article = ({ onBackButtonClicked, article }) => {
+export const Article = ({ onBackButtonClicked }) => {
   const { t } = useTranslation();
-  const [fileArticle, setFileArticle] = useState("");
+  const [fileArticle, setFileArticle] = useState(null);
 
-  useEffect(() => {
-    // const path = `${ARTICLES_PATH}/${article.path}`;
-    // const path2 = `../../articles/${article.path}`;
-    // console.log(path);
-    // console.log(path2);
-    import(`../../articles/${article.path}`).then((res) => {
+  const { articleId } = useParams();
+
+  const article = articles.find(
+    (article) => article.id === parseInt(articleId)
+  );
+
+  import(`../../articles/${article.path}`)
+    .then((res) => {
       fetch(res.default)
         .then((data) => data.text())
         .then((text) => {
           setFileArticle(text);
         });
+    })
+    .catch((error) => {
+      console.error(error);
     });
-  }, [article]);
 
   return (
     <div>
-      <button onClick={onBackButtonClicked}>Back</button>
-      <p>{article.author}</p>
-      <ReactMarkdown>{fileArticle}</ReactMarkdown>
-      <p>{article.date}</p>
+      <Link to="/">{t("articles.back")}</Link>
+      {fileArticle && (
+        <div className="article-content">
+          <h3>
+            {article.author}, {article.date}
+          </h3>
+          <ReactMarkdown>{fileArticle}</ReactMarkdown>
+        </div>
+      )}
+      {!fileArticle && <div>{t("articles.not_found")}</div>}
     </div>
   );
 };

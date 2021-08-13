@@ -40,3 +40,8 @@
 .cards-list {
   display: flex;
 }
+
+.article-content {
+  text-align: justify;
+  margin: 10px;
+}

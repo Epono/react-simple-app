@@ -15,17 +15,13 @@ export const CardsList = ({ articles, onArticleClick }) => {
   return (
     <Box display="flex" justifyContent="space-around" flexWrap="wrap">
       {articles.map((article) => (
-        <Box
-          width={300}
-          className={classes.root}
-          key={article.id}
-          onClick={() => onArticleClick(article.id)}
-        >
+        <Box width={300} className={classes.root} key={article.id}>
           <ArticleCard
             author={article.author}
             title={article.title}
             description={article.description}
             date={article.date}
+            articleId={article.id}
           />
         </Box>
       ))}

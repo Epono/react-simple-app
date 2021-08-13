@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 export const Header = () => {
@@ -6,23 +7,13 @@ export const Header = () => {
 
   return (
     <div className="header-root">
-      <div>{t("header.welcome")}</div>
+      <Link to="/">{t("header.welcome")}</Link>
       <div className="header-right">
-        <a href="" className="header-item">
-          {t("header.our_story")}
-        </a>
-        <a href="" className="header-item">
-          {t("header.membership")}
-        </a>
-        <a href="" className="header-item">
-          {t("header.write")}
-        </a>
-        <a href="" className="header-item">
-          {t("header.sign_in")}
-        </a>
-        <a href="" className="header-item header-item-highlighted">
-          {t("header.get_started")}
-        </a>
+        <Link to="/about">{t("header.our_story")}</Link>
+        <Link to="/membership">{t("header.membership")}</Link>
+        <Link to="/write">{t("header.write")}</Link>
+        <Link to="/sign-in">{t("header.sign_in")}</Link>
+        <Link to="/get-started">{t("header.get_started")}</Link>
       </div>
     </div>
   );

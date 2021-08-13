@@ -5,8 +5,11 @@ import {
   Button,
   Typography,
 } from "@material-ui/core";
+import React from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -15,9 +18,27 @@ const useStyles = makeStyles({
   },
 });
 
-export const ArticleCard = ({ title, description, author, date, ...props }) => {
+export const ArticleCard = ({
+  title,
+  description,
+  author,
+  date,
+  articleId,
+  ...props
+}) => {
   const classes = useStyles(props);
   const { t } = useTranslation();
+
+  const FancyLink = React.forwardRef((props, ref) => (
+    // <a ref={ref} {...props}>
+    //   💅 {props.children}
+    // </a>
+    // <CardActions >
+    <Button ref={ref} {...props} size="small">
+      {t("articles.learn_more")}
+    </Button>
+    // </CardActions>
+  ));
 
   return (
     <Card className={classes.root}>
@@ -33,8 +54,11 @@ export const ArticleCard = ({ title, description, author, date, ...props }) => {
           {date}
         </Typography>
       </CardContent>
+
+      <Link to={`/article/${articleId}`}>{t("articles.learn_more")}</Link>
+
       <CardActions>
-        <Button size="small">{t("articles.learn_more")}</Button>
+        <Link to={`/article/${articleId}`} component={FancyLink} />
       </CardActions>
     </Card>
   );
