@@ -1,14 +1,15 @@
-// import React from "react";
 import { useTranslation } from "react-i18next";
 import ReactMarkdown from "react-markdown";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { articles } from "../../articles/articles";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 export const Article = ({ onBackButtonClicked }) => {
   const { t } = useTranslation();
   const [fileArticle, setFileArticle] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [shouldRedirect, setShouldRedirect] = useState(false);
 
   const { articleId } = useParams();
 
@@ -25,21 +26,33 @@ export const Article = ({ onBackButtonClicked }) => {
         });
     })
     .catch((error) => {
-      console.error(error);
+      // console.error(error);
+      setShouldRedirect(true);
+    })
+    .finally(() => {
+      setLoading(false);
     });
 
   return (
-    <div>
-      <Link to="/">{t("articles.back")}</Link>
-      {fileArticle && (
-        <div className="article-content">
-          <h3>
-            {article.author}, {article.date}
-          </h3>
-          <ReactMarkdown>{fileArticle}</ReactMarkdown>
+    <>
+      {loading ? (
+        <div> Loading...</div>
+      ) : shouldRedirect ? (
+        <Redirect to="/404" />
+      ) : (
+        <div>
+          <Link to="/">{t("articles.back")}</Link>
+          {fileArticle && (
+            <div className="article-content">
+              <h3>
+                {article.author}, {article.date}
+              </h3>
+              <ReactMarkdown>{fileArticle}</ReactMarkdown>
+            </div>
+          )}
+          {!fileArticle && <div>{t("articles.not_found")}</div>}
         </div>
       )}
-      {!fileArticle && <div>{t("articles.not_found")}</div>}
-    </div>
+    </>
   );
 };

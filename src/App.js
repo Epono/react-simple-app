@@ -53,6 +53,9 @@ function App() {
         <Route path="/article/:articleId">
           <Article />
         </Route>
+        <Route path="/404">
+          <PageNotFound />
+        </Route>
         <Route path="/">
           <Home />
         </Route>
@@ -65,6 +68,10 @@ function Home() {
   return <CardsList articles={articles} />;
 }
 
+function PageNotFound() {
+  return <div style={{ textAlign: "center" }}>404</div>;
+}
+
 function OurStory() {
   return <h2>OurStory</h2>;
 }
@@ -73,6 +80,6 @@ export default App;
 
 // better markdown, authors  to grab,
 // try not to fetch and use markdown package to do it
-// use json data model to store articles => ok
-// skim through async tasks and http_client
-// 404 on article not found => ok
+// clean the nested ternary in Article.js
+// use MaterialUI to finally make it pretty
+// add a way to write/edit/delete articles

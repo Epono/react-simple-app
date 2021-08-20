@@ -29,17 +29,6 @@ export const ArticleCard = ({
   const classes = useStyles(props);
   const { t } = useTranslation();
 
-  const FancyLink = React.forwardRef((props, ref) => (
-    // <a ref={ref} {...props}>
-    //   💅 {props.children}
-    // </a>
-    // <CardActions >
-    <Button ref={ref} {...props} size="small">
-      {t("articles.learn_more")}
-    </Button>
-    // </CardActions>
-  ));
-
   return (
     <Card className={classes.root}>
       <CardContent>
@@ -55,10 +44,10 @@ export const ArticleCard = ({
         </Typography>
       </CardContent>
 
-      <Link to={`/article/${articleId}`}>{t("articles.learn_more")}</Link>
-
       <CardActions>
-        <Link to={`/article/${articleId}`} component={FancyLink} />
+        <Button to={`/article/${articleId}`} component={Link} size="small">
+          {t("articles.learn_more")}
+        </Button>
       </CardActions>
     </Card>
   );
