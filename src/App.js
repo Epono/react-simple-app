@@ -1,4 +1,3 @@
-import "./App.css";
 import { Flags } from "./components/flags/Flags";
 import { Header } from "./components/header/Header.js";
 import {
