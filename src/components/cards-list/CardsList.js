@@ -2,6 +2,7 @@ import { ArticleCard } from "../article-card/ArticleCard.js";
 import Box from "@material-ui/core/Box";
 import { GRID_UNIT } from "../../constants.js";
 import { makeStyles } from "@material-ui/core/styles";
+import { articles } from "../../articles/articles";
 
 const useStyles = makeStyles({
   root: {
@@ -9,7 +10,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const CardsList = ({ articles, onArticleClick }) => {
+export const CardsList = () => {
   const classes = useStyles();
 
   return (

@@ -26,33 +26,27 @@ export const Article = ({ onBackButtonClicked }) => {
         });
     })
     .catch((error) => {
-      // console.error(error);
       setShouldRedirect(true);
     })
     .finally(() => {
       setLoading(false);
     });
 
+  if (loading) return <div> Loading...</div>;
+  if (shouldRedirect) return <Redirect to="/404" />;
+
   return (
-    <>
-      {loading ? (
-        <div> Loading...</div>
-      ) : shouldRedirect ? (
-        <Redirect to="/404" />
-      ) : (
-        <div>
-          <Link to="/">{t("articles.back")}</Link>
-          {fileArticle && (
-            <div className="article-content">
-              <h3>
-                {article.author}, {article.date}
-              </h3>
-              <ReactMarkdown>{fileArticle}</ReactMarkdown>
-            </div>
-          )}
-          {!fileArticle && <div>{t("articles.not_found")}</div>}
+    <div>
+      <Link to="/">{t("articles.back")}</Link>
+      {fileArticle && (
+        <div className="article-content">
+          <h3>
+            {article.author}, {article.date}
+          </h3>
+          <ReactMarkdown>{fileArticle}</ReactMarkdown>
         </div>
       )}
-    </>
+      {!fileArticle && <div>{t("articles.not_found")}</div>}
+    </div>
   );
 };
